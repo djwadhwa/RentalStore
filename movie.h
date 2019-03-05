@@ -7,5 +7,5 @@ public:
 private:
   int stock, releaseYear;
   string title;
-}
+};
 #endif
