@@ -6,6 +6,6 @@ public:
   getStock();
 private:
   int stock, releaseYear;
-  string title;
+  string title, director;
 };
 #endif
