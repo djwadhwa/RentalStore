@@ -2,12 +2,14 @@
 
 class RentalStore {
 private:
-  DVD storage;
+  DVD DVDinventory;  //should be Inventory or DVD?
   Hashtable<Customer> customerList;
 
 public:
-  void readTransactions( Fstream );
+  RentalStore();
+  RentalStore( Inventory, fstream ); //or just create customer object beforehand,and make copy constr in customer
+  void readTransactions( fstream );
 
-  //print inventory should be in inventory class 
+  //print inventory should be in inventory class
 
 }
