@@ -6,13 +6,16 @@ using namespace std
 class Customer
 {
 public:
+  Customer();
+  Customer(int, string, string)
+  ~Customer();
   string getFirstName();
   string getLastName();
   string getID();
   void printHistory();
 
 private:
-  int ID;
+  int id;
   string firstName, lastName;
   //linked list of the transaction for each customer
 };
