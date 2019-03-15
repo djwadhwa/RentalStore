@@ -2,17 +2,18 @@
 #define CUSTOMER_H
 #include <string>
 #include <iostream>
-
+using namespace std
 class Customer
 {
 public:
-  std::string getFirstName();
-  std::string getLastName();
-  std::string getID();
+  string getFirstName();
+  string getLastName();
+  string getID();
   void printHistory();
 
 private:
   int ID;
-  std::string firstName, lastName;
+  string firstName, lastName;
+  //linked list of the transaction for each customer
 };
 #endif
