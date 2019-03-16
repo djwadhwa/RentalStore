@@ -1,3 +1,5 @@
+#ifndef RENTALSTORE_H
+
 #include <fstream>
 
 class RentalStore {
