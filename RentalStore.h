@@ -1,6 +1,8 @@
 #ifndef RENTALSTORE_H
-
+#define RENTALSTORE_H
+#include <iostream>
 #include <fstream>
+using namespace std;
 
 class RentalStore {
 private:
