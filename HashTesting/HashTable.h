@@ -14,7 +14,8 @@ public:
 
 
 private:
-
+  //ItemType* hashTable;
+  //int size;
   struct HashNode {
     int key;
     ItemType value;
