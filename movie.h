@@ -3,9 +3,16 @@
 #include <string>
 class Movie{
 public:
-  getStock();
-private:
+  int getStock();
+  void setStock(int);
+  std::string getTitle();
+  void setTitle(std::string);
+  std::string getDirector();
+  void setDirector(std::string );
+  int getYear();
+  void setYear(int);
+protected:
   int stock, releaseYear;
-  string title, director;
+  std::string title, director;
 };
 #endif
