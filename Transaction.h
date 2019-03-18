@@ -6,10 +6,17 @@ using namespace std;
 
 class Transaction
 {
-public:
-  void printTransaction();
+    public:
+        Transaction();
+        Transaction(char, char, string);
+        ~Transaction();
+        char getMediaType();
+        char getTransType();
+        string getTitle();
+        void printTransaction();
 
-private:
-  char transType, mediaType;
-  string title;
-}
+    private:
+        char transType, mediaType;
+        string title;
+};
+#endif
