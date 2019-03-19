@@ -3,15 +3,16 @@
 #include <string>
 #include <iostream>
 using namespace std;
+
 class Customer
 {
 public:
   Customer();
-  Customer(int, string, string)
+  Customer(int, string, string);
   ~Customer();
   string getFirstName();
   string getLastName();
-  string getID();
+  int getID();
   void printHistory();
 
 private:
