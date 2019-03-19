@@ -1,7 +1,7 @@
 #include "Customer.h"
-#include <string>
-#include <iostream>
-using namespace std;
+//#include <string>
+//#include <iostream>
+//using namespace std;
 
 Customer()
 {
