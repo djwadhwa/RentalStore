@@ -3,21 +3,21 @@
 //#include <iostream>
 //using namespace std;
 
-Customer()
+Customer::Customer()
 {
   this->firstName = "";
   this->lastName = "";
   this->id = 0;
 }
 
-Customer(int id, string fn, string ln)
+Customer::Customer(int id, string fn, string ln)
 {
   this->firstName = fn;
   this->lastName = ln;
   this->id = id;
 }
 
-~Customer()
+Customer::~Customer()
 {
 }
 
@@ -31,7 +31,7 @@ string Customer::getLastName()
   return lastName;
 }
 
-string Customer::getID()
+int Customer::getID()
 {
   return id;
 }
