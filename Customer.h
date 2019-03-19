@@ -3,22 +3,25 @@
 #include <string>
 #include <iostream>
 #include "Transaction.h"
+#include "LinkedQueue.h"
 using namespace std;
 class Customer
 {
     public:
         Customer();
+        Customer(int);
         Customer(int, string, string);
         ~Customer();
-        string getFirstName();
-        string getLastName();
-        int getID();
-        void printHistory();
+        string getFirstName() const;
+        string getLastName() const;
+        int getID() const;
+        void printHistory() const;
         void addHistory(Transaction );
 
     private:
         int id;
         string firstName, lastName;
-        //linked list of the transaction for each customer
+        LinkedQueue<Transaction> transHist;     //linked list of the transaction for each customer
+
 };
 #endif
