@@ -36,7 +36,8 @@ string Transaction::getTitle()
     return this->title;
 }
 
-void Transaction::printTransaction()
-{   
-    cout << "Transaction: " << transType << " " << mediaType << " " << title;
-}   
+ostream& operator<< (ostream &outStream, const Transaction &trans)
+{
+    outStream << trans.transType << " " <<  trans.mediaType << " " << trans.title;
+    return outStream;
+}
