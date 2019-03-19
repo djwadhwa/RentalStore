@@ -7,6 +7,8 @@
 using namespace std;
 class Customer
 {
+    friend ostream& operator<< (ostream &outStream, const Customer &cus);
+
     public:
         Customer();
         Customer(int);
@@ -17,6 +19,9 @@ class Customer
         int getID() const;
         void printHistory() const;
         void addHistory(Transaction );
+        bool operator==(const Customer &cus) const;
+        bool operator!=(const Customer &cus) const;
+        Customer& operator=(const Customer &cus);
 
     private:
         int id;
