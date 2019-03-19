@@ -6,6 +6,8 @@ using namespace std;
 
 class Transaction
 {
+    friend ostream& operator<< (ostream &outStream, const Transaction &trans);
+    
     public:
         Transaction();
         Transaction(char, char, string);
