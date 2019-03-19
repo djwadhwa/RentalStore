@@ -54,3 +54,38 @@ void Customer::addHistory(Transaction t)
 {
     transHist.Enqueue(&t);
 }
+
+bool Customer::operator==(const Customer &cus) const
+{
+    if (this->firstName == cus.firstName)
+    {
+        if (this->lastName == cus.firstName)
+        {
+            if (this->id == cus.id)
+            {
+                return true;
+            }
+            return false;
+        }
+        return false;
+    }
+    return false;
+}
+
+bool Customer::operator!=(const Customer &cus) const
+{
+    return !(*this == cus);
+}
+Customer& Customer::operator=(const Customer &cus)
+{
+    this->firstName = cus.firstName;
+    this->lastName = cus.lastName;
+    this->id = cus.id;
+    return *this;
+}
+
+ostream& operator<< (ostream &outStream, const Customer &cus)
+{
+    outStream << cus.id << ", " << cus.firstName << ", " << cus.lastName << endl;
+    return outStream;
+}
