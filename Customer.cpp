@@ -10,6 +10,13 @@ Customer::Customer()
     this->id = 0;
 }
 
+Customer::Customer(int id)
+{
+    this->firstName = "";
+    this->lastName = "";
+    this->id = id;
+}
+
 Customer::Customer(int id, string fn, string ln)
 {
     this->firstName = fn;
@@ -22,27 +29,28 @@ Customer::~Customer()
 
 }
 
-string Customer::getFirstName()
+string Customer::getFirstName() const
 {
     return firstName;
 }
 
-string Customer::getLastName()
+string Customer::getLastName() const
 {
     return lastName;
 }
 
-int Customer::getID()
+int Customer::getID() const
 {
     return id;
 }
 
-void Customer::printHistory()
+void Customer::printHistory() const
 {
-    //print the linked list of the transaction
+    cout << firstName << "'s current transactions history:" << endl;
+    cout << transHist;
 }
 
 void Customer::addHistory(Transaction t)
 {
-    //add the parameter to the LinkedList for the transaction
+    transHist.Enqueue(&t);
 }
