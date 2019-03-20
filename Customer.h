@@ -2,8 +2,7 @@
 #define CUSTOMER_H
 #include <string>
 #include <iostream>
-//#include "Transaction.h"
-//#include "LinkedQueue.h"
+
 using namespace std;
 class Customer
 {
@@ -18,8 +17,8 @@ class Customer
         string getLastName() const;
         int getID() const;
         void setFirstName( string name );
-        //void printHistory() const;
-        //void addHistory(Transaction );
+        void printHistory() const;
+        void addHistory(Transaction );
         bool operator==(const Customer &cus) const;
         bool operator!=(const Customer &cus) const;
         Customer& operator=(const Customer &cus);
@@ -27,9 +26,7 @@ class Customer
     private:
         int id;
         string firstName, lastName;
-        //LinkedQueue<Transaction> transHist;     //linked list of the transaction for each customer
 
-        /*
         struct TransNode {
           char  transType;
           char  mediaType
@@ -38,7 +35,6 @@ class Customer
       }
       TransNode* head;
       insertTrans();
-      */
 
 
 };

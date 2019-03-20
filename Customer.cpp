@@ -47,18 +47,33 @@ int Customer::getID() const
 {
     return id;
 }
-/*
+
 void Customer::printHistory() const
 {
     cout << firstName << "'s current transactions history:" << endl;
-    cout << transHist;
-}*/
-/*
-void Customer::addHistory(Transaction t)
-{
-    transHist.Enqueue(&t);
+    TransNode * current = head;
+    while (current!=nullptr)
+    {
+      std::cout << TransNode->transType <<" "<< TransNode->title <<" "<<TransNode->mediaType << '\n';
+      current = current-> next;
+    }
 }
-*/
+
+void Customer::addHistory(char  transType, char  mediaType, string title)
+{
+    TransNode * current = head;
+    TransNode ** currentptr = &current;
+    while (current != nullptr)
+    {
+      current = current->next;
+      currentptr = currentptr->next;
+    }
+   TransNode * node = new TransNode;
+   node -> transType = transType;
+   node -> mediaType = mediaType;
+   node-> title = title;
+}
+
 bool Customer::operator==(const Customer &cus) const
 {
     if (this->firstName == cus.firstName)
