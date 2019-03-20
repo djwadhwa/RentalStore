@@ -1,7 +1,11 @@
 #ifndef MOVIE_H
 #define MOVIE_H
+
+#include <iostream>
 #include <string>
+
 class Movie{
+
 public:
   int getStock();
   void setStock(int);
@@ -11,8 +15,10 @@ public:
   void setDirector(std::string );
   int getYear();
   void setYear(int);
+
 protected:
   int stock, releaseYear;
   std::string title, director;
 };
+
 #endif
