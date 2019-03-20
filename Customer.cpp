@@ -61,6 +61,17 @@ void Customer::printHistory() const
 
 void Customer::addHistory(char transType, char mediaType, string title)
 {
+  if (head == nullptr)
+  {
+    TransNode * node = new TransNode;
+    head = node;
+    node -> transType = transType;
+    node -> mediaType = mediaType;
+    node-> title = title;
+    node->next = nullptr;
+  }
+  else
+  {
     TransNode * current = head;
     TransNode ** currentptr = &current;
     while (current != nullptr)
@@ -74,6 +85,7 @@ void Customer::addHistory(char transType, char mediaType, string title)
    node -> mediaType = mediaType;
    node-> title = title;
    node->next = current;
+  }
 
 }
 

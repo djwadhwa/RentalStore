@@ -5,9 +5,9 @@
 
 bool Comedy::operator == (const Comedy& comedyObj) const
 {
-if (getTitle() == comedyOb.getTitle())
+if (getTitle() == comedyObj.getTitle())
 {
-  if (getYear() == comedyOb.getYear())
+  if (getYear() == comedyObj.getYear())
   {
     return true;
   }
@@ -18,9 +18,9 @@ return false;
 
 bool Comedy::operator < (const Comedy& comedyObj) const
 {
-  if (getTitle() <= comedyOb.getTitle())
+  if (getTitle() <= comedyObj.getTitle())
   {
-    if (getYear() < comedyOb.getYear())
+    if (getYear() < comedyObj.getYear())
     {
       return true;
     }
@@ -31,9 +31,9 @@ bool Comedy::operator < (const Comedy& comedyObj) const
 
 bool Comedy::operator > (const Comedy& comedyObj) const
 {
-  if (getTitle() >= comedyOb.getTitle())
+  if (getTitle() >= comedyObj.getTitle())
   {
-    if (getYear() > comedyOb.getYear())
+    if (getYear() > comedyObj.getYear())
     {
       return true;
     }
