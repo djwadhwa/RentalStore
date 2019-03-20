@@ -10,7 +10,7 @@ class HashTable {
 
     int hashfunction( int key );
     bool insert( int key, ItemType value );
-    ItemType getItem( int key );
+    ItemType* get( int key );
     void printTable();
 
   private:
@@ -52,7 +52,7 @@ bool HashTable<ItemType>::insert( int key, ItemType value ) {
       hashtable[index]->next = NULL;
 
     } else {  //collision case
-      std::cout << "collision case";
+      //std::cout << "collision case";
 
       HashNode* current = hashtable[index];
       while (current->next != NULL )
@@ -88,7 +88,7 @@ void HashTable<ItemType>::printTable() {
 }
 
 template<class ItemType>
-ItemType HashTable<ItemType>::getItem( int key ) {
+ItemType* HashTable<ItemType>::get( int key ) {
   int index = hashfunction(key);
 
   if (hashtable[index] == NULL)
@@ -97,7 +97,7 @@ ItemType HashTable<ItemType>::getItem( int key ) {
   HashNode* current = hashtable[index];
   while (current != NULL) {
     if ( current->key == key ) {
-      return current->value;
+      return (&current->value);
     }
     current = current->next;
   }
