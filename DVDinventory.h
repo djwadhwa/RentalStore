@@ -3,7 +3,6 @@
 #include <iostream>
 #include <string>
 #include "Inventory.h"
-#include "BinTree.h"
 using namespace std;
 
 class DVDInventory : public Inventory
@@ -17,8 +16,8 @@ class DVDInventory : public Inventory
         void readInventory(ifstream);
 
     private:
-        //BinTree<Comedy> comedyDVDList;
-        //BinTree<Classic> classicDVDList;
-        //BinTree<Drama> dramaDVDList;
+        set<Comedy> comedyDVDList;
+        // set<Classic> classicDVDList;
+        set<Drama> dramaDVDList;
 };
 #endif

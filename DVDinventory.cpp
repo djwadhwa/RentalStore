@@ -1,7 +1,12 @@
 #include "DVDInventory.h"
+#include "Drama.h"
+#include "Comedy.h"
+#include "Classic.h"
+#include <set>
 #include <iostream>
-#include <string>
 #include <fstream>
+#include <string>
+#include <vector>
 #include <sstream>
 
 
@@ -31,34 +36,41 @@ void printInventory()
 
 }
 
-void DVDInventory::readInventory (ifstream file)
+void DVDInventory::readInventory (ifstream infile)
 {
-    if (file.is_open())
-    {
-        string s, director, title, year;
-        int stock;
-        char genre;
-        string line;
-        while (getline(file, line))
+  while (!infile.eof())
+  {
+      string input;
+      getline(infile, input);
+      vector <string> tokens;
+      stringstream s (input);
+      string intermediate;
+
+      while(getline(s, intermediate, ','))
+          {
+              tokens.push_back(intermediate);
+          }
+
+        if (tokens.size()!= 0)
         {
-            stringstream ss(line);
-            string value;
-            while (getline(ss, value, ','))
-            {
-                file >> genre;
-                file >> stock;
-                file >> director >> title;
-                if (genre == 'F' || genre == 'D')
-                {
-                    file >> year;
-                }
-                else if (genre = 'C')
-                {
-                    string actorAndDate;
-                    file >> actorAndDate;
-                }
-            }
+          if (tokens[0] == "D")
+          {
+            Drama dramaMovie;
+            dramaMovie.setStock(stoi(tokens[1]));
+            dramaMovie.setDirector(tokens[2]);
+            dramaMovie.setTitle(tokens[3]);
+            dramaMovie.setYear(stoi(tokens[4]));
+            std::cout << dramaMovie.getTitle() << '\n';
+            dramaDVDList.insert(dramaMovie);
+          }
+          if (tokens[0] == "F")
+          {
+            Comedy comedyMovie;
+            comedyMovie.setStock(stoi(tokens[1]));
+            comedyMovie.setDirector(tokens[2]);
+            comedyMovie.setTitle(tokens[3]);
+            comedyMovie.setYear(stoi(tokens[4]));
+            comedyDVDList.insert(comedyMovie);
+          }
         }
-           
-    }
 }
