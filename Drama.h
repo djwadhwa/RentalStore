@@ -6,6 +6,8 @@
 class Drama: public Movie
 {
 public:
-  
+  bool operator == (const Drama& dramaObj) const;
+  bool operator < (const Drama& dramaObj) const;
+  bool operator > (const Drama& dramaObj) const;
 };
 #endif
