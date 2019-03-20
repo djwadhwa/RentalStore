@@ -18,7 +18,7 @@ class Customer
         int getID() const;
         void setFirstName( string name );
         void printHistory() const;
-        void addHistory(Transaction );
+        void addHistory(char transType, char mediaType, string title);
         bool operator==(const Customer &cus) const;
         bool operator!=(const Customer &cus) const;
         Customer& operator=(const Customer &cus);
@@ -28,14 +28,12 @@ class Customer
         string firstName, lastName;
 
         struct TransNode {
-          char  transType;
-          char  mediaType
+          char transType;
+          char mediaType;
           string title;
           TransNode* next;
-      }
+      };
       TransNode* head;
-      insertTrans();
-
-
+      //insertTrans();
 };
 #endif
