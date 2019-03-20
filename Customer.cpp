@@ -34,6 +34,10 @@ string Customer::getFirstName() const
     return firstName;
 }
 
+void Customer::setFirstName( string name ) {
+  firstName = name;
+}
+
 string Customer::getLastName() const
 {
     return lastName;
@@ -43,18 +47,18 @@ int Customer::getID() const
 {
     return id;
 }
-
+/*
 void Customer::printHistory() const
 {
     cout << firstName << "'s current transactions history:" << endl;
     cout << transHist;
-}
-
+}*/
+/*
 void Customer::addHistory(Transaction t)
 {
     transHist.Enqueue(&t);
 }
-
+*/
 bool Customer::operator==(const Customer &cus) const
 {
     if (this->firstName == cus.firstName)
