@@ -22,9 +22,9 @@ int main()
     classic1.setMajorActor("DJ Wadhwa");
     classic2.setReleaseMonth(4);
     classic2.setMajorActor("Tarcisius Daniel");
-    if (classic1 == classic2)
+    if (!(classic1 == classic2))
     {
-        cout << "true";
+        cout << "not same";
     }
 
     return 0;
