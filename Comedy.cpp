@@ -3,7 +3,7 @@
 
 #include "Comedy.h"
 
-bool operator == (const Comedy& comedyObj) const
+bool Comedy::operator == (const Comedy& comedyObj) const
 {
 if (getTitle() == comedyOb.getTitle())
 {
@@ -16,7 +16,7 @@ if (getTitle() == comedyOb.getTitle())
 return false;
 }
 
-bool operator < (const Comedy& comedyObj) const
+bool Comedy::operator < (const Comedy& comedyObj) const
 {
   if (getTitle() <= comedyOb.getTitle())
   {
@@ -29,7 +29,7 @@ bool operator < (const Comedy& comedyObj) const
   return false;
 }
 
-bool operator > (const Comedy& comedyObj) const
+bool Comedy::operator > (const Comedy& comedyObj) const
 {
   if (getTitle() >= comedyOb.getTitle())
   {

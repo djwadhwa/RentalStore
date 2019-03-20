@@ -21,7 +21,7 @@ void Classic::setMajorActor(std::string actorName)
   this->majorActor = actorName;
 }
 
-bool operator == (const Classic& classicObj) const
+bool Classic::operator == (const Classic& classicObj) const
 {
 if (getYear() == classicObj.getYear())
 {
@@ -38,7 +38,7 @@ if (getYear() == classicObj.getYear())
 return false;
 }
 
-bool operator < (const Classic& classicObj) const
+bool Classic::operator < (const Classic& classicObj) const
 {
   if (getYear() <= classicObj.getYear())
   {
@@ -55,7 +55,7 @@ bool operator < (const Classic& classicObj) const
   return false;
 }
 
-bool operator > (const Classic& classicObj) const
+bool Classic::operator > (const Classic& classicObj) const
 {
 
   if (getYear() >= classicObj.getYear())

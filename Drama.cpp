@@ -3,7 +3,7 @@
 
 #include "Drama.h"
 
-bool operator == (const Drama& dramaObj) const
+bool Drama::operator == (const Drama& dramaObj) const
 {
 if (getDirector() == dramaObj.getDirector())
 {
@@ -16,7 +16,7 @@ if (getDirector() == dramaObj.getDirector())
 return false;
 }
 
-bool operator < (const Drama& dramaObj) const
+bool Drama::operator < (const Drama& dramaObj) const
 {
   if (getDirector() <= dramaObj.getDirector())
   {
@@ -29,7 +29,7 @@ bool operator < (const Drama& dramaObj) const
   return false;
 }
 
-bool operator > (const Drama& dramaObj) const
+bool Drama::operator > (const Drama& dramaObj) const
 {
 
   if (getDirector() >= dramaObj.getDirector())
