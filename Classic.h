@@ -5,6 +5,7 @@
 #include "Movie.h"
 class Classic: public Movie
 {
+
 public:
   int getReleaseMonth();
   std::string getMajorActor();
@@ -13,5 +14,6 @@ public:
 private:
   int releaseMonth;
   std::string majorActor;
+
 };
 #endif

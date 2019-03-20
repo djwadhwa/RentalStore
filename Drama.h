@@ -3,6 +3,9 @@
 #include <string>
 #include "Movie.h"
 
-class Drama: public Movie{
+class Drama: public Movie
+{
+public:
+  
 };
 #endif
