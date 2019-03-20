@@ -29,7 +29,7 @@ int main() {
   RentalStore store;
   store.readInCustomerList(infile2); //eventually in constructor
   //store.printCustomerList();
-  
+
 
   ifstream infile3("data4commands.txt");
   if (!infile3) {
@@ -39,6 +39,8 @@ int main() {
   }
 
   store.readTransactions(infile3);
+
+  //print inventory to see if all the right movies were rented, print stocks
 
   return 0;
 };
