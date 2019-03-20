@@ -15,10 +15,11 @@ private:
 
 public:
   RentalStore();
-//  RentalStore( Inventory, fstream ); //or just create customer object beforehand,and make copy constr in customer
+//  RentalStore( Inventory, ifstream& ); //or just create customer object beforehand,and make copy constr in customer
   void readTransactions( ifstream& );
   void readInCustomerList( ifstream& );
   void printCustomerList();
+  bool setItemInfo(ifstream&, char& itemType, char& genre, int& custID, std::string& attr1, std::string& attr2);
   //print inventory should be in inventory class
 
 };
