@@ -20,4 +20,56 @@ void Classic::setMajorActor(std::string actorName)
   this->majorActor = actorName;
 }
 
+bool operator == (const Classic& classicObj) const
+{
+if (getYear() == classicObj.getYear())
+{
+  if (getReleaseMonth() == classicObj.getReleaseMonth())
+  {
+    if (getMajorActor() == classicObj.getMajorActor())
+    {
+      return true;
+    }
+    return false;
+  }
+  return false;
+}
+return false;
+}
+
+bool operator < (const Classic& classicObj) const
+{
+  if (getYear() <= classicObj.getYear())
+  {
+    if (getReleaseMonth() <= classicObj.getReleaseMonth())
+    {
+      if (getMajorActor() < classicObj.getMajorActor())
+      {
+        return true;
+      }
+      return false;
+    }
+    return false;
+  }
+  return false;
+}
+
+bool operator > (const Classic& classicObj) const
+{
+
+  if (getYear() >= classicObj.getYear())
+  {
+    if (getReleaseMonth() >= classicObj.getReleaseMonth())
+    {
+      if (getMajorActor() > classicObj.getMajorActor())
+      {
+        return true;
+      }
+      return false;
+    }
+    return false;
+  }
+  return false;
+}
+
 #endif
