@@ -172,25 +172,6 @@ void LinkedQueue<ItemType>::DeleteQueue()
     curr = NULL;
     head = NULL;
 }
-// /**
-//  * Change the order of Nodes in a LinekdQueue in a reverse order from the original
-//  */
-// template <class ItemType>
-// void LinkedQueue<ItemType>::Reverse()
-// {
-//     LinkedQueue<ItemType> rev;
-//     Node* curr = head;
-//     Node* anoCurr = NULL;
-//     while(curr->next != NULL)
-//     {
-//         anoCurr = curr->next;
-//         curr->next = anoCurr->next;
-//         anoCurr->next = head;
-//         head = anoCurr;
-//     }
-//     curr = NULL;
-//     anoCurr = NULL;
-// }
 /**
  * Overload "==" overload
  * @param &queue the LinkedQueue that will be compared with the other LinkedQueue (this)

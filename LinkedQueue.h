@@ -45,7 +45,6 @@ class LinkedQueue
     int Size() const;
     void DeleteQueue();
     void printQueue();
-    //void Reverse();
     //==, !=, and = operator overload
     bool operator==(const LinkedQueue &queue) const;
     bool operator!=(const LinkedQueue &queue) const;
