@@ -11,7 +11,9 @@ if (getDirector() == dramaObj.getDirector())
   {
     return true;
   }
+  return false;
 }
+return false;
 }
 
 bool operator < (const Drama& dramaObj) const
@@ -22,7 +24,9 @@ bool operator < (const Drama& dramaObj) const
     {
       return true;
     }
+    return false;
   }
+  return false;
 }
 
 bool operator > (const Drama& dramaObj) const
@@ -34,7 +38,9 @@ bool operator > (const Drama& dramaObj) const
     {
       return true;
     }
+    return false;
   }
+  return false;
 }
 
 #endif
