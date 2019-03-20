@@ -1,22 +1,23 @@
-#ifndef DVDINVENTORY_H
-#define DVDINVENTORY_H
+#ifndef INVENTORY_H
+#define INVENTORY_H
 #include <iostream>
 #include <string>
-#include "Inventory.h"
-#include "BinTree.h"
+#include <fstream>
 using namespace std;
 
-class DVDInventory : public Inventory
+class Inventory
 {
     public:
-        DVDInventory();
-        ~DVDInventory();
-        void borrowItem(char ,string ,string );
-        void returnItem(char ,string ,string );
+        Inventory();
+        Inventory(const Inventory&);
+        ~Inventory();
+        void readInventory(fstream);
+        void borrowItem(char ,char ,string ,string );
+        void returnItem(char ,char ,string ,string );
         void printInventory();
+    
     private:
-        //BinTree<Comedy> comedyDVDList;
-        //BinTree<Classic> classicDVDList;
-        //BinTree<Drama> dramaDVDList;
+        
+        
 };
 #endif
