@@ -1,33 +1,64 @@
-#include "DVDinventory.h"
+#include "DVDInventory.h"
+#include <iostream>
+#include <string>
+#include <fstream>
+#include <sstream>
 
-//read in var, create correct object based on genre, fill using setters
-void DVDinventory::fillInventory( ftsream infile ) {
-  //Loop
-  /*          PART 1: read in variables           */
 
-  //use getline with , as delimieter
-  //read in genre, stock, director, title
-
-  /*          if F or D                           */
-  //e.g. F, 10, Nora Ephron, You've Got Mail, 1998
-
-  //read in year released
-  //  if F
-      //create Comedy object
-      //use setters
-  //  if D
-      //create Drama object
-      //use setters
-
-  /*          if C                                */
-  //C, 10, George Cukor, Holiday, Katherine Hepburn 9 1938
-  //sometimes classics have same movie but dif major actor how to handle? add stock or seperate movie object?
-
-  //read in major actor month and year realeas
-
+using namespace std;
+DVDInventory::DVDInventory()
+{
 
 }
 
-bool DVDinventory::borrowItem( char genre, string attr1, string attr2 ) {}
+DVDInventory::~DVDInventory()
+{
 
-bool DVDinventory::returnItem( char genre, string attr1, string attr2 ) {}
+}
+
+void DVDInventory::borrowItem(char ,string ,string )
+{
+
+}
+
+void returnItem(char ,string ,string )
+{
+
+}
+
+void printInventory()
+{
+
+}
+
+void DVDInventory::readInventory (ifstream file)
+{
+    if (file.is_open())
+    {
+        string s, director, title, year;
+        int stock;
+        char genre;
+        string line;
+        while (getline(file, line))
+        {
+            stringstream ss(line);
+            string value;
+            while (getline(ss, value, ','))
+            {
+                file >> genre;
+                file >> stock;
+                file >> director >> title;
+                if (genre == 'F' || genre == 'D')
+                {
+                    file >> year;
+                }
+                else if (genre = 'C')
+                {
+                    string actorAndDate;
+                    file >> actorAndDate;
+                }
+            }
+        }
+           
+    }
+}
