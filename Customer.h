@@ -34,6 +34,5 @@ class Customer
           TransNode* next;
       };
       TransNode* head;
-      //insertTrans();
 };
 #endif
