@@ -1,3 +1,5 @@
+#ifndef DVDINVENTORY_H
+#define DVDINVENTORY_H
 
 class DVDinventory: public Inventory {
 
@@ -11,4 +13,5 @@ private:
   BST<D> dramaDVDList;
   BST<C> classicDVDList;
 
-}
+};
+#endif
