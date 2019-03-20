@@ -1,6 +1,8 @@
 #ifndef COMEDY_H
 #define COMEDY_H
+
 #include "Movie.h"
+
 class Comedy : public Movie
 {
 public:

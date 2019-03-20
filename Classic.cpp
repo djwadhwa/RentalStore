@@ -1,5 +1,6 @@
 #ifndef CLASSIC_CPP
 #define CLASSIC_CPP
+
 #include "Classic.h"
 
 int Classic::getReleaseMonth()
