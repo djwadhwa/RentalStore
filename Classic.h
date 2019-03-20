@@ -3,7 +3,8 @@
 #include <iostream>
 #include <string>
 #include "Movie.h"
-class Classic: public Movie{
+class Classic: public Movie
+{
 public:
   int getReleaseMonth();
   std::string getMajorActor();
