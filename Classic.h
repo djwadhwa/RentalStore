@@ -7,8 +7,8 @@ class Classic: public Movie
 {
 
 public:
-  int getReleaseMonth();
-  std::string getMajorActor();
+  int getReleaseMonth() const;
+  std::string getMajorActor() const;
   void setReleaseMonth(int);
   void setMajorActor(std::string);
 

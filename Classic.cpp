@@ -3,11 +3,11 @@
 
 #include "Classic.h"
 
-int Classic::getReleaseMonth()
+int Classic::getReleaseMonth() const
 {
   return this->releaseMonth;
 }
-std::string Classic::getMajorActor()
+std::string Classic::getMajorActor() const
 {
   return this -> majorActor;
 }
