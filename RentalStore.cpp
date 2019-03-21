@@ -47,7 +47,10 @@ void RentalStore::readTransactions( ifstream& infile ) {
               std::cout << "customer: " << cust->getID() << std::endl;
               //add transaction missing title from classics
               std::string title = attr1 + " " + attr2;
+              std::cout << "error" << std::endl;
               cust->addHistory('B', itemType, genre, title );
+              std::cout << "errorafter" << std::endl;
+
 
             } else {
               std::cout << "error: customer not found" << std::endl;
@@ -156,15 +159,24 @@ void RentalStore::printCustomerList() {
 */
 bool RentalStore::setItemInfo( ifstream& infile, char& itemType, char& genre, int& custID, std::string& attr1, std::string& attr2 ) {
   infile >> custID >> itemType >> genre;
+  std::string junk;
+  getline(infile, junk, ' ');
 
   if (itemType == 'D') {
 
       if ( genre == 'F') {
-        getline(infile, attr1, ',');          //movie title
-        getline(infile, attr2, '\n');         //year released
+        getline(infile, attr1, ',');
+        std::string junk;
+
+                 //movie title
+        //getline(infile, attr2, '\n');         //year released
+        infile >> attr2;
+        //getline();
 
       } else if ( genre == 'D') {
         getline(infile, attr1, ',');          //director
+        std::string junk;
+        getline(infile, junk, ' ');
         getline(infile, attr2, ',');          //movie title
 
       } else if ( genre == 'C') {

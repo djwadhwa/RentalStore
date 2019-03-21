@@ -103,8 +103,8 @@ void Customer::addHistory(char transType, char mediaType, char genre, string tit
   {
     TransNode * node = new TransNode;
     head = node;
-    node -> transType = transType;
-    node -> mediaType = mediaType;
+    node->transType = transType;
+    node->mediaType = mediaType;
     node->genre = genre;
     node-> title = title;
     node->next = nullptr;
@@ -120,8 +120,8 @@ void Customer::addHistory(char transType, char mediaType, char genre, string tit
     }
    TransNode * node = new TransNode;
    *currentptr = node;
-   node -> transType = transType;
-   node -> mediaType = mediaType;
+   node->transType = transType;
+   node->mediaType = mediaType;
    node->genre = genre;
    node-> title = title;
    node->next = current;
