@@ -2,10 +2,10 @@
 
 /*  @TinaFedorov
     Driver
-    Creates inventory by reading in from text file
-    Creates RentalStore with two Parameters
-      1) Inventory object, copied to DVDinventory object in store
-      2) file with customer to read in and fill customerList in store
+    Opens Inventory txtFile
+    Creates RentalStore
+      1) Inventory file is read and fills in inventory obj in rental store
+      2) customers are read in the constructor of rental store
     Reads in transaction commands
 */
 

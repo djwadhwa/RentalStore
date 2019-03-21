@@ -11,24 +11,24 @@ g++ -std=c++14 Driver.cpp RentalStore.cpp Customer.cpp DVDinventory.cpp Comedy.c
 File name                                       Contributor
 ------------------------------------------------------------------------------------------
 Classic.cpp                                 DJ Wadhwa
-Classic.h                                      DJ Wadhwa
-Comedy.cpp                                DJ Wadhwa
+Classic.h                                   DJ Wadhwa
+Comedy.cpp                                  DJ Wadhwa
 Comedy.h                                    DJ Wadhwa
-Customer.cpp                             DJ Wadhwa/Tarcisius Daniel
+Customer.cpp                                DJ Wadhwa/Tarcisius Daniel
 Customer.h                                  DJ Wadhwa/Tarcisius Daniel
 Drama.cpp                                   DJ Wadhwa
-Drama.h                                       DJ Wadhwa
-Driver.cpp                                    Tina Fedorov
-DVDinventory.cpp                      DJ Wadhwa
-DVDinventory.h                           Tarcisius Daniel
-HashTable.h                               Tina Fedorov
+Drama.h                                     DJ Wadhwa
+Driver.cpp                                  Tina Fedorov
+DVDinventory.cpp                            DJ Wadhwa
+DVDinventory.h                              Tarcisius Daniel
+HashTable.h                                 Tina Fedorov
 Inventory.h                                 Tarcisius Daniel
-Movie.cpp                                  DJ Wadhwa
-Movie.h                                      DJ Wadhwa
-RentalStore.cpp                       Tina Fedorov
-RentalStore.h                           Tina Fedorov
-TestDriver.cpp                          Tarcisius Daniel/Tina Fedorov
-testdvd.cpp                               DJ Wadhwa
-testforcustomer.cpp               Tarcisius Daniel
-testfordvdinventory.cpp         Tarcisius Daniel
-testformovies.cpp                   Tarcisius Daniel
+Movie.cpp                                   DJ Wadhwa
+Movie.h                                     DJ Wadhwa
+RentalStore.cpp                             Tina Fedorov
+RentalStore.h                               Tina Fedorov
+TestDriver.cpp                              Tarcisius Daniel/Tina Fedorov
+testdvd.cpp                                 DJ Wadhwa
+testforcustomer.cpp                         Tarcisius Daniel
+testfordvdinventory.cpp                     Tarcisius Daniel
+testformovies.cpp                           Tarcisius Daniel
