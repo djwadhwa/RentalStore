@@ -41,7 +41,7 @@ void DVDInventory::returnDVD(char DVDType, string firstAttribute, string secondA
 {
   if (DVDType == 'D')
   {
-    
+
   }
   else if (DVDType = 'F')
   {
@@ -100,8 +100,19 @@ void DVDInventory::readInventory (ifstream infile)
             classicMovie.setStock(stoi(tokens[1]));
             classicMovie.setDirector(tokens[2]);
             classicMovie.setTitle(tokens[3]);
-            // get the major actor and released date
-            //
+
+            stringstream s2 (tokens[4]);
+            std::vector<string> tokens2;
+
+            while(getline(s2, intermediate, ' '))
+                {
+                    tokens2.push_back(intermediate);
+                }
+
+            classicMovie.setMajorActor(tokens2[1]+" "+tokens2[2]);
+            classicMovie.setReleaseMonth(stoi(tokens2[3]));
+            classicMovie.setYear(stoi(tokens2[4]));
+            classicDVDList.insert (classicMovie);
           }
         }
 }
