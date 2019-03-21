@@ -27,6 +27,7 @@ DVDInventory::~DVDInventory()
  */
 bool DVDInventory::borrowItem(char DVDType, string firstAttribute, string secondAttribute)
 {
+  std::cout << firstAttribute<<","<<secondAttribute << '\n';
   if (DVDType == 'D') //go to this if statement if the DVDType is Drama
   {
     std::set<Drama>::iterator it;
