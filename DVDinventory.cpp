@@ -3,23 +3,27 @@ using namespace std;
 DVDInventory::DVDInventory()
 {
 }
-
 DVDInventory::~DVDInventory()
 {
-
 }
-
 void DVDInventory::borrowDVD(char DVDType, string firstAttribute, string secondAttribute)
 {
   if (DVDType == 'D')
   {
-std::set<Drama>::iterator it;
+    std::set<Drama>::iterator it;
     Drama d;
     d.setDirector(firstAttribute);
     d.setTitle(secondAttribute);
     it = dramaDVDList.find(d);
-    // (*it).setStock((*it).getStock()-1);
+    if (it != dramaDVDList.end())
+    {
+    d.setStock((*it).getStock()-1);
+    d.setYear((*it).getYear());
+    }
+    dramaDVDList.erase(it);
+    dramaDVDList.insert(d);
   }
+
   else if (DVDType == 'F')
   {
     std::set<Comedy>::iterator it;
@@ -27,16 +31,37 @@ std::set<Drama>::iterator it;
         f.setTitle(secondAttribute);
         f.setYear (stoi(secondAttribute));
         it = comedyDVDList.find(f);
-        // *it.setStock((*it).getStock()-1);
+        if (it != comedyDVDList.end())
+        {
+          f.setStock((*it).getStock()-1);
+          f.setDirector((*it).getDirector());
+        }
+        comedyDVDList.erase(it);
+        comedyDVDList.insert(f);
   }
   else if (DVDType == 'C')
   {
-    // std::set<Classic>::iterator it;
-    //     Classic c;
-    //     c(firstAttribute);
-    //     d.setTitle(secondAttribute);
-    //     it = dramaDVDList.find(d);
-    //     *it.setStock((*it).getStock()-1);
+    std::set<Classic>::iterator it;
+        Classic c;
+        vector <string> tokens;
+        stringstream s (firstAttribute);
+        string intermediate;
+        while(getline(s, intermediate, ' '))
+            {
+                tokens.push_back(intermediate);
+            }
+        c.setReleaseMonth(stoi(tokens[0]));
+        c.setYear(stoi(tokens[1]));
+        c.setMajorActor (secondAttribute);
+        it = classicDVDList.find(c);
+        if (it != classicDVDList.end())
+        {
+          c.setStock((*it).getStock()-1);
+          c.setDirector((*it).getDirector());
+          c.setTitle((*it).getTitle());
+        }
+        classicDVDList.erase(it);
+        classicDVDList.insert(c);
   }
 }
 
@@ -44,15 +69,58 @@ void DVDInventory::returnDVD(char DVDType, string firstAttribute, string secondA
 {
   if (DVDType == 'D')
   {
-
+    std::set<Drama>::iterator it;
+    Drama d;
+    d.setDirector(firstAttribute);
+    d.setTitle(secondAttribute);
+    it = dramaDVDList.find(d);
+    if (it != dramaDVDList.end())
+    {
+    d.setStock((*it).getStock()+1);
+    d.setYear((*it).getYear());
+    }
+    dramaDVDList.erase(it);
+    dramaDVDList.insert(d);
   }
+
   else if (DVDType == 'F')
   {
-
+    std::set<Comedy>::iterator it;
+        Comedy f;
+        f.setTitle(secondAttribute);
+        f.setYear (stoi(secondAttribute));
+        it = comedyDVDList.find(f);
+        if (it != comedyDVDList.end())
+        {
+          f.setStock((*it).getStock()+1);
+          f.setDirector((*it).getDirector());
+        }
+        comedyDVDList.erase(it);
+        comedyDVDList.insert(f);
   }
   else if (DVDType == 'C')
   {
-
+    std::set<Classic>::iterator it;
+        Classic c;
+        vector <string> tokens;
+        stringstream s (firstAttribute);
+        string intermediate;
+        while(getline(s, intermediate, ' '))
+            {
+                tokens.push_back(intermediate);
+            }
+        c.setReleaseMonth(stoi(tokens[0]));
+        c.setYear(stoi(tokens[1]));
+        c.setMajorActor (secondAttribute);
+        it = classicDVDList.find(c);
+        if (it != classicDVDList.end())
+        {
+          c.setStock((*it).getStock()+1);
+          c.setDirector((*it).getDirector());
+          c.setTitle((*it).getTitle());
+        }
+        classicDVDList.erase(it);
+        classicDVDList.insert(c);
   }
 }
 
@@ -73,7 +141,7 @@ void DVDInventory::printInventory()
     std::cout << "Classics: " << '\n';
   for (Classic const& c : classicDVDList)
     {
-        std::cout << c.getTitle()<< " "<< c.getStock()<< " " << c.getYear()<< " "<< c.getMajorActor()<< '\n';
+        std::cout << c.getTitle()<< " "<< c.getStock()<< " " <<c.getReleaseMonth() << " "<< c.getYear()<< " "<< c.getMajorActor()<< '\n';
     }
 }
 
@@ -81,11 +149,10 @@ void DVDInventory::fillInventory (ifstream &infile)
 {
   while (!infile.eof())
   {
-      string input;
+      string input, intermediate;
       getline(infile, input);
       vector <string> tokens;
       stringstream s (input);
-      string intermediate;
 
       while (!infile.eof())
       {
