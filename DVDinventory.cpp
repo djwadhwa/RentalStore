@@ -28,13 +28,13 @@ bool DVDInventory::borrowItem(char DVDType, string firstAttribute, string second
 {
   // std::cout << firstAttribute<<","<<secondAttribute << '\n';
   if (DVDType == 'D') //go to this if statement if the DVDType is Drama
-  {
+  {//firstAttribute for drama is director, secondAttribute is title
     std::set<Drama>::iterator it;
     Drama d;
     d.setDirector(firstAttribute);
     d.setTitle(secondAttribute);
-    it = dramaDVDList.find(d);
-    if (it != dramaDVDList.end())
+    it = dramaDVDList.find(d); //set is a const data structure and therefore cannot be changed
+    if (it != dramaDVDList.end()) //therfore need to erase and reinsert
     {
       if((*it).getStock() == 0)
       {
@@ -50,7 +50,7 @@ bool DVDInventory::borrowItem(char DVDType, string firstAttribute, string second
   }
 
   else if (DVDType == 'F')
-  {
+  {//firstAttribute for comedy is title and second is year
     std::set<Comedy>::iterator it;
         Comedy f;
         f.setTitle(firstAttribute);
@@ -72,6 +72,8 @@ bool DVDInventory::borrowItem(char DVDType, string firstAttribute, string second
   }
   else if (DVDType == 'C')
   {
+    //first attribute for classic is month and year, therefore need to tokenize
+      //second attribute is majorActor
     std::set<Classic>::iterator it;
         Classic c;
         vector <string> tokens;
@@ -112,7 +114,7 @@ bool DVDInventory::borrowItem(char DVDType, string firstAttribute, string second
 bool DVDInventory::returnItem(char DVDType, string firstAttribute, string secondAttribute)
 {
   if (DVDType == 'D') //go to this if statement if the DVDType is Drama
-  {
+  {//firstAttribute for drama is
     std::set<Drama>::iterator it;
     Drama d;
     d.setDirector(firstAttribute);
