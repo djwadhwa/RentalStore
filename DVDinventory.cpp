@@ -170,6 +170,7 @@ bool DVDInventory::returnItem(char DVDType, string firstAttribute, string second
           return true;
         }
         return false;
+      }
 }
 
 /**
