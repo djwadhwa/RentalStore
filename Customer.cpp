@@ -54,7 +54,7 @@ void Customer::printHistory() const
     TransNode * current = head;
     while (current != nullptr)
     {
-      std::cout << (current->transType) <<" "<< (current->title) <<" "<< (current->mediaType) << '\n';
+      std::cout << (current->transType) <<" "<< (current->mediaType) <<" "<< (current->genre) <<" "<< (current->title) << '\n';
       current = current-> next;
     }
 }
