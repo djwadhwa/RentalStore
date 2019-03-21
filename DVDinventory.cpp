@@ -26,7 +26,7 @@ DVDInventory::~DVDInventory()
  */
 bool DVDInventory::borrowItem(char DVDType, string firstAttribute, string secondAttribute)
 {
-  std::cout << firstAttribute<<","<<secondAttribute << '\n';
+  // std::cout << firstAttribute<<","<<secondAttribute << '\n';
   if (DVDType == 'D') //go to this if statement if the DVDType is Drama
   {
     std::set<Drama>::iterator it;
@@ -119,15 +119,14 @@ bool DVDInventory::returnItem(char DVDType, string firstAttribute, string second
     it = dramaDVDList.find(d);
     if (it != dramaDVDList.end())
     {
-    d.setStock((*it).getStock()+1);
+    d.setStock((*it).getStock() +1);
     d.setYear((*it).getYear());
-
     dramaDVDList.erase(it);
     dramaDVDList.insert(d);
     return true;
+    }
+    return false;
   }
-  return false;
-}
 
   else if (DVDType == 'F')
   {
@@ -138,9 +137,8 @@ bool DVDInventory::returnItem(char DVDType, string firstAttribute, string second
         it = comedyDVDList.find(f);
         if (it != comedyDVDList.end())
         {
-          f.setStock((*it).getStock()+1);
+          f.setStock((*it).getStock() + 1);
           f.setDirector((*it).getDirector());
-
         comedyDVDList.erase(it);
         comedyDVDList.insert(f);
         return true;
@@ -164,7 +162,7 @@ bool DVDInventory::returnItem(char DVDType, string firstAttribute, string second
         it = classicDVDList.find(c);
         if (it != classicDVDList.end())
         {
-          c.setStock((*it).getStock()+1);
+          c.setStock((*it).getStock() + 1);
           c.setDirector((*it).getDirector());
           c.setTitle((*it).getTitle());
           classicDVDList.erase(it);
@@ -172,7 +170,6 @@ bool DVDInventory::returnItem(char DVDType, string firstAttribute, string second
           return true;
         }
         return false;
-  }
 }
 
 /**
