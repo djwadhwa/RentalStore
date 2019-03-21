@@ -93,7 +93,7 @@ bool Customer::operator==(const Customer &cus) const
 {
     if (this->firstName == cus.firstName)
     {
-        if (this->lastName == cus.firstName)
+        if (this->lastName == cus.lastName)
         {
             if (this->id == cus.id)
             {
