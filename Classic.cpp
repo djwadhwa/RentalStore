@@ -54,6 +54,12 @@ if (getYear() == classicObj.getYear() && getReleaseMonth() == classicObj.getRele
   return false;
 }
 
+/**
+ * "<" operator overload for classic
+ * @param &classicObj the classic object that will be compared with the assigned classic movie
+ * @return false if the assigned classic movie is bigger in comparison than &classicObj
+ * @return true if the assigned classic movie is smaller in comparison than &classicObj
+ */
 bool Classic::operator < (const Classic& classicObj) const
 {
   if (getYear() < classicObj.getYear())
@@ -71,6 +77,12 @@ bool Classic::operator < (const Classic& classicObj) const
   return false;
 }
 
+/**
+ * ">" operator overload for classic
+ * @param &classicObj the classic object that will be compared with the assigned classic movie
+ * @return true if the assigned classic movie is bigger in comparison than &classicObj
+ * @return false if the assigned classic movie is smaller in comparison than &classicObj
+ */
 bool Classic::operator > (const Classic& classicObj) const
 {
   if (getYear() > classicObj.getYear())
@@ -89,3 +101,4 @@ bool Classic::operator > (const Classic& classicObj) const
 }
 
 #endif
+

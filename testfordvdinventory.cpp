@@ -9,7 +9,12 @@
 int main()
 {
     DVDInventory dvdStorage;
-    ifstream openFile;
-    openFile.open("data4movies.txt");
-    dvdStorage.readInventory(openFile);
+    ifstream openFile("data4movies.txt");
+    dvdStorage.fillInventory(openFile);
+    dvdStorage.printInventory();
+    dvdStorage.borrowDVD('D', "Steven Spielberg", "Schindler's List");
+    dvdStorage.printInventory();
+
+    dvdStorage.borrowDVD('C', "9 1938", "Cary Grant");
+    dvdStorage.printInventory();
 }

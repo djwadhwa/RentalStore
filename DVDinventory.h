@@ -13,7 +13,7 @@ class DVDInventory : public Inventory
         void borrowDVD(char ,string ,string );
         void returnDVD(char ,string ,string );
         void printInventory();
-        void readInventory(ifstream);
+        void fillInventory(ifstream &);
 
     private:
         set<Comedy> comedyDVDList;
