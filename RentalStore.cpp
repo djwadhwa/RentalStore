@@ -38,27 +38,25 @@ void RentalStore::readTransactions( ifstream& infile ) {
           if (!setInfo) //if itemtype or genre was not valid, cant borrow
             break;
 
-          valid = DVDinventoryObj.borrowItem( genre, attr1, attr2 ); //change stock #
+          cust = customerList.get(custID);
 
-          if (valid) {
-            cust = customerList.get(custID);
-
-            if (cust != NULL) {
-              std::cout << "customer: " << cust->getID() << std::endl;
-              //add transaction missing title from classics
-              std::string title = attr1 + " " + attr2;
-              std::cout << "error" << std::endl;
-              cust->addHistory('B', itemType, genre, title );
-              std::cout << "errorafter" << std::endl;
-
-
+          if (cust != NULL) {
+            std::cout << "customer: " << cust->getID() << std::endl;
+            valid = DVDinventoryObj.borrowItem( genre, attr1, attr2 );
+            if (!valid) {
+              std::cout << "error: movie not found or out of stock" << std::endl;
             } else {
-              std::cout << "error: customer not found" << std::endl;
+            //add transaction missing title from classics
+              std::string title = attr1 + " " + attr2;
+            //std::cout << "error" << std::endl;
+            cust->addHistory('B', itemType, genre, title );
+            //std::cout << "errorafter" << std::endl;
             }
 
           } else {
-            std::cout << "error: movie not found or out of stock" << std::endl;
+            std::cout << "error: customer not found" << std::endl;
           }
+
 
           break;
 
@@ -69,25 +67,24 @@ void RentalStore::readTransactions( ifstream& infile ) {
           if (!setInfo) //if itemtype or genre was not valid, cant borrow
             break;
 
-          valid = DVDinventoryObj.returnItem( genre, attr1, attr2 ); //change stock #
+          cust = customerList.get(custID);
 
-          if (valid) {
-            cust = customerList.get(custID);
-
-            if (cust != NULL) {
-              std::cout << "customer: " << cust->getID() << std::endl;
-              //add transaction missing title from classics
-              std::string title = attr1 + " " + attr2;
-              cust->addHistory('R', itemType, genre, title);
-
+          if (cust != NULL) {
+            std::cout << "customer: " << cust->getID() << std::endl;
+            valid = DVDinventoryObj.returnItem( genre, attr1, attr2 );
+            if (!valid) {
+              std::cout << "error: movie not found or out of stock" << std::endl;
             } else {
-              std::cout << "error: customer not found" << std::endl;
+            //add transaction missing title from classics
+              std::string title = attr1 + " " + attr2;
+            //std::cout << "error" << std::endl;
+            cust->addHistory('B', itemType, genre, title );
+            //std::cout << "errorafter" << std::endl;
             }
 
           } else {
-              std::cout << "error: movie not found or out of stock" << std::endl;
+            std::cout << "error: customer not found" << std::endl;
           }
-
           break;
 
 
