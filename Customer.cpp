@@ -11,6 +11,7 @@ Customer::Customer()
     this->firstName = "";
     this->lastName = "";
     this->id = 0;
+    head = nullptr;
 }
 
 /**
@@ -21,6 +22,7 @@ Customer::Customer(int id)
     this->firstName = "";
     this->lastName = "";
     this->id = id;
+    head=nullptr;
 }
 
 /**
@@ -31,6 +33,7 @@ Customer::Customer(int id, string fn, string ln)
     this->firstName = fn;
     this->lastName = ln;
     this->id = id;
+    head = nullptr;
 }
 
 /**

@@ -101,4 +101,3 @@ bool Classic::operator > (const Classic& classicObj) const
 }
 
 #endif
-
