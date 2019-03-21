@@ -5,8 +5,11 @@ DVDInventory::DVDInventory()
 }
 DVDInventory::~DVDInventory()
 {
+  dramaDVDList.clear();
+  comedyDVDList.clear();
+  classicDVDList.clear();
 }
-void DVDInventory::borrowDVD(char DVDType, string firstAttribute, string secondAttribute)
+bool DVDInventory::borrowItem(char DVDType, string firstAttribute, string secondAttribute)
 {
   if (DVDType == 'D')
   {
@@ -17,11 +20,17 @@ void DVDInventory::borrowDVD(char DVDType, string firstAttribute, string secondA
     it = dramaDVDList.find(d);
     if (it != dramaDVDList.end())
     {
+      if((*it).getStock() == 0)
+      {
+        return false;
+      }
     d.setStock((*it).getStock()-1);
     d.setYear((*it).getYear());
-    }
     dramaDVDList.erase(it);
     dramaDVDList.insert(d);
+    return true;
+    }
+    return false;
   }
 
   else if (DVDType == 'F')
@@ -33,11 +42,17 @@ void DVDInventory::borrowDVD(char DVDType, string firstAttribute, string secondA
         it = comedyDVDList.find(f);
         if (it != comedyDVDList.end())
         {
+          if((*it).getStock() == 0)
+          {
+            return false;
+          }
           f.setStock((*it).getStock()-1);
           f.setDirector((*it).getDirector());
-        }
         comedyDVDList.erase(it);
         comedyDVDList.insert(f);
+        return true;
+      }
+      return false;
   }
   else if (DVDType == 'C')
   {
@@ -56,16 +71,22 @@ void DVDInventory::borrowDVD(char DVDType, string firstAttribute, string secondA
         it = classicDVDList.find(c);
         if (it != classicDVDList.end())
         {
+          if((*it).getStock() == 0)
+          {
+            return false;
+          }
           c.setStock((*it).getStock()-1);
           c.setDirector((*it).getDirector());
           c.setTitle((*it).getTitle());
+          classicDVDList.erase(it);
+          classicDVDList.insert(c);
+          return true;
         }
-        classicDVDList.erase(it);
-        classicDVDList.insert(c);
+        return false;
   }
 }
 
-void DVDInventory::returnDVD(char DVDType, string firstAttribute, string secondAttribute)
+bool DVDInventory::returnItem(char DVDType, string firstAttribute, string secondAttribute)
 {
   if (DVDType == 'D')
   {
@@ -78,10 +99,13 @@ void DVDInventory::returnDVD(char DVDType, string firstAttribute, string secondA
     {
     d.setStock((*it).getStock()+1);
     d.setYear((*it).getYear());
-    }
+
     dramaDVDList.erase(it);
     dramaDVDList.insert(d);
+    return true;
   }
+  return false;
+}
 
   else if (DVDType == 'F')
   {
@@ -94,9 +118,12 @@ void DVDInventory::returnDVD(char DVDType, string firstAttribute, string secondA
         {
           f.setStock((*it).getStock()+1);
           f.setDirector((*it).getDirector());
-        }
+
         comedyDVDList.erase(it);
         comedyDVDList.insert(f);
+        return true;
+      }
+      return false;
   }
   else if (DVDType == 'C')
   {
@@ -118,9 +145,11 @@ void DVDInventory::returnDVD(char DVDType, string firstAttribute, string secondA
           c.setStock((*it).getStock()+1);
           c.setDirector((*it).getDirector());
           c.setTitle((*it).getTitle());
+          classicDVDList.erase(it);
+          classicDVDList.insert(c);
+          return true;
         }
-        classicDVDList.erase(it);
-        classicDVDList.insert(c);
+        return false;
   }
 }
 
@@ -205,7 +234,7 @@ void DVDInventory::fillInventory (ifstream &infile)
                 classicMovie.setMajorActor(tokens2[1]+" "+tokens2[2]);
                 classicMovie.setReleaseMonth(stoi(tokens2[3]));
                 classicMovie.setYear(stoi(tokens2[4]));
-                classicDVDList.insert (classicMovie);
+                classicDVDList.insert(classicMovie);
               }
               else
               {

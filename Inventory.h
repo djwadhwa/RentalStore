@@ -14,13 +14,10 @@ using namespace std;
 
 class Inventory
 {
-    public:
-        // Inventory();
-        // Inventory(const Inventory&);
-        // ~Inventory();
+public:
         void fillInventory(fstream);
-        void borrowItem(char ,char ,string ,string );
-        void returnItem(char ,char ,string ,string );
+        bool borrowItem(char, string, string );
+        bool returnItem(char, string , string );
         void printInventory();
 };
 #endif

@@ -10,8 +10,8 @@ class DVDInventory : public Inventory
     public:
         DVDInventory();
         ~DVDInventory();
-        void borrowDVD(char ,string ,string );
-        void returnDVD(char ,string ,string );
+        bool borrowItem(char, string, string );
+        bool returnItem(char, string, string );
         void printInventory();
         void fillInventory(ifstream &);
 
