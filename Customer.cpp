@@ -119,6 +119,7 @@ void Customer::addHistory(char transType, char mediaType, char genre, string tit
   else
   {
     TransNode * current = head;
+
     while (current != nullptr)
     {
       if (current->next == nullptr)
@@ -128,7 +129,8 @@ void Customer::addHistory(char transType, char mediaType, char genre, string tit
         node->mediaType = mediaType;
         node->genre = genre;
         node-> title = title;
-        node->next = current->next;
+        current->next= node;
+        node-> next = nullptr;
         break;
       }
       current = current->next;
