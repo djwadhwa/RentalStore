@@ -1,8 +1,15 @@
 #ifndef INVENTORY_H
 #define INVENTORY_H
+#include "Drama.h"
+#include "Comedy.h"
+#include "Classic.h"
+#include <set>
 #include <iostream>
-#include <string>
 #include <fstream>
+#include <vector>
+#include <sstream>
+#include <string>
+
 using namespace std;
 
 class Inventory

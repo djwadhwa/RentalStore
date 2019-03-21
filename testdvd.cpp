@@ -85,7 +85,7 @@ std::set<Drama>::iterator it;
 
 if (D.find(dr) != D.end())
 {
-  std::cout << *D.find(dr)<< '\n';;
+  std::cout << (*D.find(dr)).getStock()<< '\n';;
 }
 
 return 0;

@@ -1,11 +1,8 @@
 #ifndef DVDINVENTORY_H
 #define DVDINVENTORY_H
-#include <iostream>
-#include <string>
+
 #include "Inventory.h"
-#include "Drama.h"
-#include "Comedy.h"
-#include "Classic.h"
+
 using namespace std;
 
 class DVDInventory : public Inventory
