@@ -122,8 +122,8 @@ void Customer::addHistory(char transType, char mediaType, char genre, string tit
         node->genre = genre;
         node-> title = title;
         node->next = current->next;
+        break;
       }
-      currentptr = &current->next;
       current = current->next;
     }
 
