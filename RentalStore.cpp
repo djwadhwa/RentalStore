@@ -78,7 +78,7 @@ void RentalStore::readTransactions( ifstream& infile ) {
             //add transaction missing title from classics
               std::string title = attr1 + " " + attr2;
             //std::cout << "error" << std::endl;
-            cust->addHistory('B', itemType, genre, title );
+            cust->addHistory('R', itemType, genre, title );
             //std::cout << "errorafter" << std::endl;
             }
 
