@@ -84,7 +84,7 @@ int Customer::getID() const
  */
 void Customer::printHistory() const
 {
-    cout << firstName << "'s current transactions history:" << endl;
+    cout << firstName << lastName << "'s current transactions history:" << endl;
     if (head == nullptr)
     {
       std::cout << "customer has no history" << '\n';
