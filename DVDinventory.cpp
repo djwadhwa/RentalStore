@@ -21,19 +21,19 @@ DVDInventory::~DVDInventory()
 
 }
 
-void DVDInventory::borrowItem(char ,string ,string )
+void DVDInventory::borrowDVD(char DVDType, string ,string )
 {
 
 }
 
-void returnItem(char ,string ,string )
+void DVDInventory::returnDVD(char DVDType, string ,string )
 {
 
 }
 
-void printInventory()
+void DVDInventory::printInventory()
 {
-  
+
 }
 
 void DVDInventory::readInventory (ifstream infile)
@@ -71,6 +71,13 @@ void DVDInventory::readInventory (ifstream infile)
             comedyMovie.setTitle(tokens[3]);
             comedyMovie.setYear(stoi(tokens[4]));
             comedyDVDList.insert(comedyMovie);
+          }
+          if (tokens[0] == "C")
+          {
+            Classic classicMovie;
+            classicMovie.setStock(stoi(tokens[1]));
+            classicMovie.setDirector(tokens[2]);
+            classicMovie.setTitle(tokens[3]);
           }
         }
 }
