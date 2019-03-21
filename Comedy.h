@@ -2,7 +2,7 @@
 #define COMEDY_H
 
 #include "Movie.h"
-//tested
+
 class Comedy : public Movie
 {
 public:

@@ -2,7 +2,7 @@
 #define CLASSIC_H
 
 #include "Movie.h"
-//tested
+
 class Classic: public Movie
 {
 

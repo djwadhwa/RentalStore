@@ -1,17 +1,33 @@
 #include "DVDinventory.h"
 using namespace std;
+
+/**
+ * Constructor for DVD inventory
+ */
 DVDInventory::DVDInventory()
 {
+
 }
+
+/**
+ * Destructor for DVD inventory
+ */
 DVDInventory::~DVDInventory()
 {
   dramaDVDList.clear();
   comedyDVDList.clear();
   classicDVDList.clear();
 }
+
+/**
+ * Method to borrow a DVD from the DVDInventory
+ * @param DVDType the genre of the DVD
+ * @param firstAttribute one of the attributes of the borrowed DVD
+ * @param secondAttribute one of the attributes of the borrowed DVD
+ */
 bool DVDInventory::borrowItem(char DVDType, string firstAttribute, string secondAttribute)
 {
-  if (DVDType == 'D')
+  if (DVDType == 'D') //go to this if statement if the DVDType is Drama
   {
     std::set<Drama>::iterator it;
     Drama d;
@@ -86,9 +102,15 @@ bool DVDInventory::borrowItem(char DVDType, string firstAttribute, string second
   }
 }
 
+/**
+ * Return a borrowed DVD to the DVDInventory
+ * @param DVDType the genre of the DVD returned
+ * @param firstAttribute one of the attributes of the returned DVD
+ * @param secondAttribute one of the attributes of the returned DVD
+ */
 bool DVDInventory::returnItem(char DVDType, string firstAttribute, string secondAttribute)
 {
-  if (DVDType == 'D')
+  if (DVDType == 'D') //go to this if statement if the DVDType is Drama
   {
     std::set<Drama>::iterator it;
     Drama d;
@@ -153,6 +175,9 @@ bool DVDInventory::returnItem(char DVDType, string firstAttribute, string second
   }
 }
 
+/**
+ * Print the state of the DVDInventory
+ */
 void DVDInventory::printInventory()
 {
   std::cout << "Comedies: " << '\n';
@@ -174,6 +199,10 @@ void DVDInventory::printInventory()
     }
 }
 
+/**
+ * Method to scan a file and get all the DVD for the DVDInventory
+ * @param &infile the file that will be scanned
+ */
 void DVDInventory::fillInventory (ifstream &infile)
 {
   while (!infile.eof())
@@ -199,7 +228,7 @@ void DVDInventory::fillInventory (ifstream &infile)
 
             if (tokens.size()!= 0)
             {
-              if (tokens[0] == "D")
+              if (tokens[0] == "D") //make a Drama DVD object
               {
                 Drama dramaMovie;
                 dramaMovie.setStock(stoi(tokens[1]));
@@ -208,7 +237,7 @@ void DVDInventory::fillInventory (ifstream &infile)
                 dramaMovie.setYear(stoi(tokens[4]));
                 dramaDVDList.insert(dramaMovie);
               }
-              else if (tokens[0] == "F")
+              else if (tokens[0] == "F") //make a Comedy DVD object
               {
                 Comedy comedyMovie;
                 comedyMovie.setStock(stoi(tokens[1]));
@@ -217,7 +246,7 @@ void DVDInventory::fillInventory (ifstream &infile)
                 comedyMovie.setYear(stoi(tokens[4]));
                 comedyDVDList.insert(comedyMovie);
               }
-              else if (tokens[0] == "C")
+              else if (tokens[0] == "C") //make a Classic DVD object
               {
                 Classic classicMovie;
                 classicMovie.setStock(stoi(tokens[1]));
@@ -241,6 +270,6 @@ void DVDInventory::fillInventory (ifstream &infile)
                   std::cout << "Incorrect code: " << tokens[0] << '\n';
               }
             }
-        }
-}
+      }
+  }
 }

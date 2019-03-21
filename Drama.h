@@ -2,7 +2,7 @@
 #define DRAMA_H
 
 #include "Movie.h"
-//tested
+
 class Drama: public Movie
 {
   friend std::ostream& operator<<(std::ostream &outStream, const Drama &d); //overload outStream operator
