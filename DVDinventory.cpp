@@ -151,5 +151,6 @@ void DVDInventory::readInventory (ifstream &infile)
                   std::cout << "Incorrect code: " << tokens[0] << '\n';
               }
             }
-        }
+      }
+  }
 }

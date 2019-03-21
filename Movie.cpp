@@ -1,6 +1,9 @@
 #ifndef MOVIE_CPP
 #define MOVIE_CPP
 #include "Movie.h"
+/**
+ * 
+ */
 int Movie::getStock() const
 {
   return this->stock;
