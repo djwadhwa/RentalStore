@@ -38,4 +38,10 @@ bool Drama::operator > (const Drama& dramaObj) const
   return false;
 }
 
+std::ostream& operator<<(std::ostream &outStream, const Drama &d)
+{
+  outStream<< d.getDirector() << " "<< d.getTitle();
+	return outStream;
+}
+
 #endif

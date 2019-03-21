@@ -54,12 +54,12 @@ void Customer::printHistory() const
     TransNode * current = head;
     while (current != nullptr)
     {
-      std::cout << (current->transType) <<" "<< (current->title) <<" "<< (current->mediaType) << '\n';
+      std::cout << (current->transType) <<" "<< (current->mediaType) <<" "<< (current->genre) <<" "<< (current->title) << '\n';
       current = current-> next;
     }
 }
 
-void Customer::addHistory(char transType, char mediaType, string title)
+void Customer::addHistory(char transType, char mediaType, char genre, string title)
 {
   if (head == nullptr)
   {
@@ -67,6 +67,7 @@ void Customer::addHistory(char transType, char mediaType, string title)
     head = node;
     node -> transType = transType;
     node -> mediaType = mediaType;
+    node->genre = genre;
     node-> title = title;
     node->next = nullptr;
   }
@@ -83,6 +84,7 @@ void Customer::addHistory(char transType, char mediaType, string title)
    *currentptr = node;
    node -> transType = transType;
    node -> mediaType = mediaType;
+   node->genre = genre;
    node-> title = title;
    node->next = current;
   }

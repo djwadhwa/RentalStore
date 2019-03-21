@@ -15,9 +15,5 @@ class Inventory
         void borrowItem(char ,char ,string ,string );
         void returnItem(char ,char ,string ,string );
         void printInventory();
-    
-    private:
-        
-        
 };
 #endif
