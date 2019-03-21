@@ -112,19 +112,21 @@ void Customer::addHistory(char transType, char mediaType, char genre, string tit
   else
   {
     TransNode * current = head;
-    TransNode ** currentptr = &current;
     while (current != nullptr)
     {
+      if (current->next == nullptr)
+      {
+        TransNode * node = new TransNode;
+        node->transType = transType;
+        node->mediaType = mediaType;
+        node->genre = genre;
+        node-> title = title;
+        node->next = current->next;
+      }
       currentptr = &current->next;
       current = current->next;
     }
-   TransNode * node = new TransNode;
-   *currentptr = node;
-   node->transType = transType;
-   node->mediaType = mediaType;
-   node->genre = genre;
-   node-> title = title;
-   node->next = current;
+
   }
 
 }
