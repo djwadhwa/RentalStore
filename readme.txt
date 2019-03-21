@@ -20,15 +20,15 @@ Drama.cpp                                   DJ Wadhwa
 Drama.h                                       DJ Wadhwa
 Driver.cpp                                    Tina Fedorov
 DVDinventory.cpp                     DJ Wadhwa
-DVDinventory.h
+DVDinventory.h                        Tarcisius Daniel
 HashTable.h
-Inventory.h
+Inventory.h                        Tarcisius Daniel
 Movie.cpp
 Movie.h
 RentalStore.cpp
 RentalStore.h
 TestDriver.cpp
 testdvd.cpp
-testforcustomer.cpp
-testfordvdinventory.cpp
-testformovies.cpp
+testforcustomer.cpp                        Tarcisius Daniel
+testfordvdinventory.cpp                        Tarcisius Daniel
+testformovies.cpp                        Tarcisius Daniel
