@@ -6,7 +6,6 @@ using namespace std;
  */
 DVDInventory::DVDInventory()
 {
-
 }
 
 /**
@@ -134,7 +133,7 @@ bool DVDInventory::returnItem(char DVDType, string firstAttribute, string second
   {
     std::set<Comedy>::iterator it;
         Comedy f;
-        f.setTitle(secondAttribute);
+        f.setTitle(firstAttribute);
         f.setYear (stoi(secondAttribute));
         it = comedyDVDList.find(f);
         if (it != comedyDVDList.end())
