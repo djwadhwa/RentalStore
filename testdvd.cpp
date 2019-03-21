@@ -40,18 +40,17 @@ while (!infile.eof())
         {
           Drama dramaMovie;
           dramaMovie.setStock(stoi(tokens[1]));
-          dramaMovie.setDirector(tokens[2]);
-          dramaMovie.setTitle(tokens[3]);
+          dramaMovie.setDirector(tokens[2].substr(1));
+          dramaMovie.setTitle(tokens[3].substr(1));
           dramaMovie.setYear(stoi(tokens[4]));
-          std::cout << dramaMovie == dr << '\n';
           D.insert(dramaMovie);
         }
         else if (tokens[0] == "F")
         {
           Comedy comedyMovie;
           comedyMovie.setStock(stoi(tokens[1]));
-          comedyMovie.setDirector(tokens[2]);
-          comedyMovie.setTitle(tokens[3]);
+          comedyMovie.setDirector(tokens[2].substr(1));
+          comedyMovie.setTitle(tokens[3].substr(1));
           comedyMovie.setYear(stoi(tokens[4]));
           F.insert(comedyMovie);
         }
@@ -59,8 +58,8 @@ while (!infile.eof())
         {
           Classic classicMovie;
           classicMovie.setStock(stoi(tokens[1]));
-          classicMovie.setDirector(tokens[2]);
-          classicMovie.setTitle(tokens[3]);
+          classicMovie.setDirector(tokens[2].substr(1));
+          classicMovie.setTitle(tokens[3].substr(1));
 
           stringstream s2 (tokens[4]);
           std::vector<string> tokens2;
@@ -77,25 +76,11 @@ while (!infile.eof())
         }
         else
         {
-            //std::cout << "Incorrect code: " << tokens[0] << '\n';
+            std::cout << "Incorrect code: " << tokens[0] << '\n';
         }
       }
   }
-  // std::cout << "Comedies: " << '\n';
-  // for (Comedy const& f : F)
-  //   {
-  //       std::cout <<f.getTitle()<<" "<<f.getStock() <<" " << f.getYear()<< '\n';
-  //   }
-  //   std::cout << "Dramas: " << '\n';
-  // for (Drama const& d : D)
-  //   {
-  //       std::cout << d.getTitle()<<" "<<d.getStock() <<" " << d.getYear()<< '\n';
-  //   }
-  //   std::cout << "Classics: " << '\n';
-  // for (Classic const& c : C)
-  //   {
-  //       std::cout << c.getTitle()<< " "<< c.getStock()<< " " << c.getYear()<< " "<< c.getMajorActor()<< '\n';
-  //   }
+
 std::set<Drama>::iterator it;
 
 if (D.find(dr) != D.end())
