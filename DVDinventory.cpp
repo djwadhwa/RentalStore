@@ -1,11 +1,6 @@
 #include "DVDInventory.h"
 
-#include <set>
-#include <iostream>
-#include <fstream>
-#include <string>
-#include <vector>
-#include <sstream>
+
 
 using namespace std;
 DVDInventory::DVDInventory()
@@ -67,17 +62,17 @@ void DVDInventory::returnDVD(char DVDType, string firstAttribute, string secondA
 void DVDInventory::printInventory()
 {
   std::cout << "Comedies: " << '\n';
-  for (Comedy const& f : F)
+  for (Comedy const& f : comedyDVDList)
     {
         std::cout <<f.getTitle()<<" "<<f.getStock() <<" " << f.getYear()<< '\n';
     }
     std::cout << "Dramas: " << '\n';
-  for (Drama const& d : D)
+  for (Drama const& d : dramaDVDList)
     {
         std::cout << d.getTitle()<<" "<<d.getStock() <<" " << d.getYear()<< '\n';
     }
     std::cout << "Classics: " << '\n';
-  for (Classic const& c : C)
+  for (Classic const& c : classicDVDList)
     {
         std::cout << c.getTitle()<< " "<< c.getStock()<< " " << c.getYear()<< " "<< c.getMajorActor()<< '\n';
     }
