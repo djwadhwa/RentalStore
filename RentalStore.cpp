@@ -38,8 +38,8 @@ void RentalStore::readTransactions( ifstream& infile ) {
           if (!setInfo) //if itemtype or genre was not valid, cant borrow
             break;
 
-          //valid = DVDinventoryObj.borrowItem( genre, attr1, attr2 ); //change stock #
-          valid = true; //temp
+          valid = DVDinventoryObj.borrowItem( genre, attr1, attr2 ); //change stock #
+
           if (valid) {
             cust = customerList.get(custID);
 
@@ -54,7 +54,7 @@ void RentalStore::readTransactions( ifstream& infile ) {
             }
 
           } else {
-            std::cout << "error: movie not found" << std::endl;
+            std::cout << "error: movie not found or out of stock" << std::endl;
           }
 
           break;
@@ -66,8 +66,8 @@ void RentalStore::readTransactions( ifstream& infile ) {
           if (!setInfo) //if itemtype or genre was not valid, cant borrow
             break;
 
-          //valid = DVDinventoryObj.returnItem( genre, attr1, attr2 ); //change stock #
-          valid = true; //temp
+          valid = DVDinventoryObj.returnItem( genre, attr1, attr2 ); //change stock #
+
           if (valid) {
             cust = customerList.get(custID);
 
@@ -82,7 +82,7 @@ void RentalStore::readTransactions( ifstream& infile ) {
             }
 
           } else {
-              std::cout << "error: movie not found" << std::endl;
+              std::cout << "error: movie not found or out of stock" << std::endl;
           }
 
           break;
@@ -105,7 +105,7 @@ void RentalStore::readTransactions( ifstream& infile ) {
 
       case 'I':   //print store inventory
           std::cout << "print Inventory" << std::endl;
-          //DVDinventory.printInventory();
+          DVDinventoryObj.printInventory();
           break;
       default:
         //if invalid action, error message?
@@ -196,4 +196,8 @@ bool RentalStore::setItemInfo( ifstream& infile, char& itemType, char& genre, in
   }
 
   return true;
+}
+
+void RentalStore::printInventory() {
+  DVDinventoryObj.printInventory();
 }

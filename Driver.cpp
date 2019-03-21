@@ -11,41 +11,30 @@
 
 int main() {
 
-  //Open txt file and Read in Inventory Object
-
+  //Open inventory object txt file
   ifstream infile1("data4movies.txt");
   if (!infile1) {
+    std::cout << "file didnt open" << std::endl;
     return 1;
-    //send error message?
   }
 
-  //DVDinventory inventory;
-  //inventory.fillInventory(infile1);
-
-  //Open txt file and read in Customer object OR do it in Rental store
-  /*ifstream infile2("data4customers.txt");
-  if (!infile2) {
-    return 1;
-    std::cout << "error" << std::endl;
-    //error msg?
-  }
-//  infile2.close();
-*/
   //Create RentalStore
   RentalStore store(infile1);
-  //store.readInCustomerList(infile1); //eventually in constructor
   //store.printCustomerList();
+  std::cout << "INVENTORY BEFORE:" << std::endl;
+  store.printInventory();
 
-/*
   //Open text file with list of transactions
-  ifstream infile3("data4commands.txt");
-  if (!infile3) {
+  ifstream commandsFile("data4commands.txt");
+  if (!commandsFile) {
+    std::cout << "error: file didnt open" << std::endl;
     return 1;
-    std::cout << "error3" << std::endl;
-    //error msg?
-  }*/
+  }
 
-  //store.readTransactions(infile3);
+  store.readTransactions(commandsFile);
+
+  std::cout << "INVENTORY AFTER:" << std::endl;
+  store.printInventory();
 
   //print inventory to see if all the right movies were rented, print stocks
 

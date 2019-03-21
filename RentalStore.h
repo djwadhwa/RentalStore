@@ -38,6 +38,7 @@ public:
   void printCustomerList();
   bool setItemInfo(ifstream&, char& itemType, char& genre, int& custID, std::string& attr1, std::string& attr2);
   //print inventory should be in inventory class
+  void printInventory();
 
 };
 
