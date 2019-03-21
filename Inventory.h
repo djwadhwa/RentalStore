@@ -15,10 +15,10 @@ using namespace std;
 class Inventory
 {
     public:
-        Inventory();
-        Inventory(const Inventory&);
-        ~Inventory();
-        void readInventory(fstream);
+        // Inventory();
+        // Inventory(const Inventory&);
+        // ~Inventory();
+        void fillInventory(fstream);
         void borrowItem(char ,char ,string ,string );
         void returnItem(char ,char ,string ,string );
         void printInventory();

@@ -1,7 +1,4 @@
-#include "DVDInventory.h"
-
-
-
+#include "DVDinventory.h"
 using namespace std;
 DVDInventory::DVDInventory()
 {
@@ -21,18 +18,18 @@ std::set<Drama>::iterator it;
     d.setDirector(firstAttribute);
     d.setTitle(secondAttribute);
     it = dramaDVDList.find(d);
-    (*it).setStock((*it).getStock()-1);
+    // (*it).setStock((*it).getStock()-1);
   }
-  else if (DVDType = 'F')
+  else if (DVDType == 'F')
   {
     std::set<Comedy>::iterator it;
         Comedy f;
         f.setTitle(secondAttribute);
         f.setYear (stoi(secondAttribute));
         it = comedyDVDList.find(f);
-        *it.setStock((*it).getStock()-1);
+        // *it.setStock((*it).getStock()-1);
   }
-  else if (DVDType = 'C')
+  else if (DVDType == 'C')
   {
     // std::set<Classic>::iterator it;
     //     Classic c;
@@ -49,11 +46,11 @@ void DVDInventory::returnDVD(char DVDType, string firstAttribute, string secondA
   {
 
   }
-  else if (DVDType = 'F')
+  else if (DVDType == 'F')
   {
 
   }
-  else if (DVDType = 'C')
+  else if (DVDType == 'C')
   {
 
   }
@@ -66,11 +63,13 @@ void DVDInventory::printInventory()
     {
         std::cout <<f.getTitle()<<" "<<f.getStock() <<" " << f.getYear()<< '\n';
     }
+    std::cout << '\n';
     std::cout << "Dramas: " << '\n';
   for (Drama const& d : dramaDVDList)
     {
         std::cout << d.getTitle()<<" "<<d.getStock() <<" " << d.getYear()<< '\n';
     }
+    std::cout << '\n';
     std::cout << "Classics: " << '\n';
   for (Classic const& c : classicDVDList)
     {
@@ -78,7 +77,7 @@ void DVDInventory::printInventory()
     }
 }
 
-void DVDInventory::readInventory (ifstream &infile)
+void DVDInventory::fillInventory (ifstream &infile)
 {
   while (!infile.eof())
   {
@@ -111,7 +110,7 @@ void DVDInventory::readInventory (ifstream &infile)
                 dramaMovie.setDirector(tokens[2].substr(1));
                 dramaMovie.setTitle(tokens[3].substr(1));
                 dramaMovie.setYear(stoi(tokens[4]));
-                D.insert(dramaMovie);
+                dramaDVDList.insert(dramaMovie);
               }
               else if (tokens[0] == "F")
               {
@@ -120,7 +119,7 @@ void DVDInventory::readInventory (ifstream &infile)
                 comedyMovie.setDirector(tokens[2].substr(1));
                 comedyMovie.setTitle(tokens[3].substr(1));
                 comedyMovie.setYear(stoi(tokens[4]));
-                F.insert(comedyMovie);
+                comedyDVDList.insert(comedyMovie);
               }
               else if (tokens[0] == "C")
               {
@@ -139,7 +138,7 @@ void DVDInventory::readInventory (ifstream &infile)
                 classicMovie.setMajorActor(tokens2[1]+" "+tokens2[2]);
                 classicMovie.setReleaseMonth(stoi(tokens2[3]));
                 classicMovie.setYear(stoi(tokens2[4]));
-                C.insert (classicMovie);
+                classicDVDList.insert (classicMovie);
               }
               else
               {
@@ -147,4 +146,5 @@ void DVDInventory::readInventory (ifstream &infile)
               }
             }
         }
+}
 }

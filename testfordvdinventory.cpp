@@ -9,7 +9,7 @@
 int main()
 {
     DVDInventory dvdStorage;
-    ifstream openFile;
-    openFile.open("data4movies.txt");
-    dvdStorage.readInventory(openFile);
+    ifstream openFile("data4movies.txt");
+    dvdStorage.fillInventory(openFile);
+    dvdStorage.printInventory();
 }
