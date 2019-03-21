@@ -1,7 +1,5 @@
 #include "DVDInventory.h"
-#include "Drama.h"
-#include "Comedy.h"
-#include "Classic.h"
+
 #include <set>
 #include <iostream>
 #include <fstream>
@@ -28,7 +26,7 @@ std::set<Drama>::iterator it;
     d.setDirector(firstAttribute);
     d.setTitle(secondAttribute);
     it = dramaDVDList.find(d);
-    *it.setStock((*it).getStock()-1);
+    (*it).setStock((*it).getStock()-1);
   }
   else if (DVDType = 'F')
   {
