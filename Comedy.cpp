@@ -5,39 +5,35 @@
 
 bool Comedy::operator == (const Comedy& comedyObj) const
 {
-if (getTitle() == comedyObj.getTitle())
-{
-  if (getYear() == comedyObj.getYear())
+  if (getTitle() == comedyObj.getTitle() && getYear() == comedyObj.getYear())
   {
     return true;
   }
   return false;
 }
-return false;
-}
 
 bool Comedy::operator < (const Comedy& comedyObj) const
 {
-  if (getTitle() <= comedyObj.getTitle())
+  if (getTitle() < comedyObj.getTitle())
   {
-    if (getYear() < comedyObj.getYear())
-    {
-      return true;
-    }
-    return false;
+    return true;
+  }
+  else if (getTitle() == comedyObj.getTitle() && getYear() < comedyObj.getYear())
+  {
+    return true;
   }
   return false;
 }
 
 bool Comedy::operator > (const Comedy& comedyObj) const
 {
-  if (getTitle() >= comedyObj.getTitle())
+  if (getTitle() > comedyObj.getTitle())
   {
-    if (getYear() > comedyObj.getYear())
-    {
-      return true;
-    }
-    return false;
+    return true;
+  }
+  else if (getTitle() == comedyObj.getTitle() && getYear() > comedyObj.getYear())
+  {
+    return true;
   }
   return false;
 }

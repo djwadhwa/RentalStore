@@ -23,53 +23,44 @@ void Classic::setMajorActor(std::string actorName)
 
 bool Classic::operator == (const Classic& classicObj) const
 {
-if (getYear() == classicObj.getYear())
-{
-  if (getReleaseMonth() == classicObj.getReleaseMonth())
-  {
-    if (getMajorActor() == classicObj.getMajorActor())
+if (getYear() == classicObj.getYear() && getReleaseMonth() == classicObj.getReleaseMonth() && getMajorActor() == classicObj.getMajorActor())
     {
       return true;
     }
-    return false;
-  }
   return false;
-}
-return false;
 }
 
 bool Classic::operator < (const Classic& classicObj) const
 {
-  if (getYear() <= classicObj.getYear())
+  if (getYear() < classicObj.getYear())
   {
-    if (getReleaseMonth() <= classicObj.getReleaseMonth())
+    return true;
+  }
+    else if (getYear() == classicObj.getYear() && getReleaseMonth() < classicObj.getReleaseMonth())
     {
-      if (getMajorActor() < classicObj.getMajorActor())
+      return true;
+    }
+  else if (getYear() == classicObj.getYear() && getReleaseMonth() == classicObj.getReleaseMonth() && getMajorActor() < classicObj.getMajorActor())
       {
         return true;
       }
-      return false;
-    }
-    return false;
-  }
   return false;
 }
 
 bool Classic::operator > (const Classic& classicObj) const
 {
-
-  if (getYear() >= classicObj.getYear())
+  if (getYear() > classicObj.getYear())
   {
-    if (getReleaseMonth() >= classicObj.getReleaseMonth())
+    return true;
+  }
+    else if (getYear() == classicObj.getYear() && getReleaseMonth() > classicObj.getReleaseMonth())
     {
-      if (getMajorActor() > classicObj.getMajorActor())
+      return true;
+    }
+  else if (getYear() == classicObj.getYear() && getReleaseMonth() == classicObj.getReleaseMonth() && getMajorActor() > classicObj.getMajorActor())
       {
         return true;
       }
-      return false;
-    }
-    return false;
-  }
   return false;
 }
 
