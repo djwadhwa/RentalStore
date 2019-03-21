@@ -25,13 +25,13 @@ void DVDInventory::borrowDVD(char DVDType, string firstAttribute, string secondA
 {
   if (DVDType == 'D')
   {
-
+    
   }
-  else if (DVDType = 'F')
+  else if (DVDType == 'F')
   {
-
+    //find the exact movie from 
   }
-  else if (DVDType = 'C')
+  else if (DVDType == 'C')
   {
 
   }
@@ -43,11 +43,11 @@ void DVDInventory::returnDVD(char DVDType, string firstAttribute, string secondA
   {
     
   }
-  else if (DVDType = 'F')
+  else if (DVDType == 'F')
   {
 
   }
-  else if (DVDType = 'C')
+  else if (DVDType == 'C')
   {
 
   }
@@ -100,8 +100,6 @@ void DVDInventory::readInventory (ifstream infile)
             classicMovie.setStock(stoi(tokens[1]));
             classicMovie.setDirector(tokens[2]);
             classicMovie.setTitle(tokens[3]);
-            // get the major actor and released date
-            //
           }
         }
 }
