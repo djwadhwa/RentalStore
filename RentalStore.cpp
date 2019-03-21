@@ -27,12 +27,12 @@ void RentalStore::readTransactions( ifstream& infile ) {
   char action, itemType, genre; int custID; std::string attr1, attr2;
   Customer* cust = NULL; //one customer per action
   bool setInfo, valid;
+
   //read in action
   while ( infile >> action ) {
     switch (action) {
 
       case 'B':   //borrow item
-          std::cout << "borrow item" << std::endl;
           //read in info from file for borrowing
           setInfo = setItemInfo(infile, itemType, genre, custID, attr1, attr2);
           if (!setInfo) //if itemtype or genre was not valid, cant borrow
@@ -40,29 +40,24 @@ void RentalStore::readTransactions( ifstream& infile ) {
 
           cust = customerList.get(custID);
 
-          if (cust != NULL) {
-            std::cout << "customer: " << cust->getID() << std::endl;
+          if (cust != NULL) { //check cust exists
             valid = DVDinventoryObj.borrowItem( genre, attr1, attr2 );
+
             if (!valid) {
               std::cout << "error: movie not found or out of stock" << std::endl;
             } else {
-            //add transaction missing title from classics
+              //add transaction
               std::string title = attr1 + " " + attr2;
-            //std::cout << "error" << std::endl;
-            cust->addHistory('B', itemType, genre, title );
-            //std::cout << "errorafter" << std::endl;
+              cust->addHistory('B', itemType, genre, title );
             }
 
           } else {
             std::cout << "error: customer not found" << std::endl;
           }
 
-
           break;
 
-
       case 'R':   //return item
-          std::cout << "return item" << std::endl;
           setInfo = setItemInfo(infile, itemType, genre, custID, attr1, attr2);
           if (!setInfo) //if itemtype or genre was not valid, cant borrow
             break;
@@ -70,16 +65,14 @@ void RentalStore::readTransactions( ifstream& infile ) {
           cust = customerList.get(custID);
 
           if (cust != NULL) {
-            std::cout << "customer: " << cust->getID() << std::endl;
             valid = DVDinventoryObj.returnItem( genre, attr1, attr2 );
+
             if (!valid) {
               std::cout << "error: movie not found or out of stock" << std::endl;
             } else {
-            //add transaction missing title from classics
+              //add transaction
               std::string title = attr1 + " " + attr2;
-            //std::cout << "error" << std::endl;
-            cust->addHistory('R', itemType, genre, title );
-            //std::cout << "errorafter" << std::endl;
+              cust->addHistory('R', itemType, genre, title );
             }
 
           } else {
@@ -89,30 +82,31 @@ void RentalStore::readTransactions( ifstream& infile ) {
 
 
       case 'H':   //print transaction history of customer
-          std::cout << "print History" << std::endl;
           infile >> custID;
           //get Customer obj pointer
           cust = customerList.get( custID );
           if (cust != NULL) {    //check if cust exists
-            std::cout << "customer: " << cust->getID() << std::endl;
             cust->printHistory();
           } else {
             std::cout << "error: customer doesn't exist" << std::endl;
           }
-
+          std::cout << std::endl;
           break;
-
 
       case 'I':   //print store inventory
-          std::cout << "print Inventory" << std::endl;
+          std::cout << "Print Inventory" << std::endl;
           DVDinventoryObj.printInventory();
+          std::cout << std::endl;
           break;
+
       default:
         //if invalid action, error message?
         std::cout << "error: invalid action" << std::endl;
         std::string junk;
         getline(infile, junk, '\n');
+        std::cout << std::endl;
     }
+
   }
 }
 
@@ -162,13 +156,10 @@ bool RentalStore::setItemInfo( ifstream& infile, char& itemType, char& genre, in
   if (itemType == 'D') {
 
       if ( genre == 'F') {
-        getline(infile, attr1, ',');
+        getline(infile, attr1, ',');          //title
         std::string junk;
+        infile >> attr2;                      //year released
 
-                 //movie title
-        //getline(infile, attr2, '\n');         //year released
-        infile >> attr2;
-        //getline();
 
       } else if ( genre == 'D') {
         getline(infile, attr1, ',');          //director
@@ -178,16 +169,14 @@ bool RentalStore::setItemInfo( ifstream& infile, char& itemType, char& genre, in
 
       } else if ( genre == 'C') {
         std::string a1, a2, a3, a4;
-        infile >> a1 >> a2;
 
+        infile >> a1 >> a2;
         //concatenate day and year released
         attr1 = a1 + " " + a2;                //release date (month + year)
-        std::cout << attr1 << std::endl;
-        infile >> a3 >> a4;
 
+        infile >> a3 >> a4;
         //concatenate major actor
         attr2 = a3 + " " + a4;                //major actor (first + lastname)
-        std::cout << attr2 << std::endl;
 
       } else {
         std::string junk;

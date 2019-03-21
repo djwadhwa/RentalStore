@@ -20,9 +20,6 @@ int main() {
 
   //Create RentalStore
   RentalStore store(infile1);
-  //store.printCustomerList();
-  std::cout << "INVENTORY BEFORE:" << std::endl;
-  store.printInventory();
 
   //Open text file with list of transactions
   ifstream commandsFile("data4commands.txt");
@@ -31,12 +28,10 @@ int main() {
     return 1;
   }
 
+  //Transactions from file
   store.readTransactions(commandsFile);
 
-  std::cout << "INVENTORY AFTER:" << std::endl;
-  store.printInventory();
 
-  //print inventory to see if all the right movies were rented, print stocks
 
   return 0;
 };
